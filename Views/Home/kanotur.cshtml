@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Kanotur";
+    Random rnd = new Random();
+    int image = rnd.Next(0, 2);
+}
+<div class="text-center">
+    <h1 class="display-4">Kanotur</h1>
+    <p>Du skal argumenter for at haiken skal være en kanotur</p>
+    @if(image==0)
+    {
+    <img src="~/img/kanotur.jpg" asp-append-version="true" />
+    }
+    else
+    {
+    <img src="~/img/kanotur2.jpg" asp-append-version="true" />
+    }
+</div>
