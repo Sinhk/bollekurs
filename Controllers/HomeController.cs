@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Tur.Models;
 
 namespace Tur.Controllers
@@ -16,9 +17,12 @@ namespace Tur.Controllers
 
         public IActionResult Index()
         {
-            Console.WriteLine(HttpContext.Connection.RemoteIpAddress);
-            //Console.WriteLine(HttpContext.Connection.Remote);
-            return View(text[counter++%4]);
+            var haik = HttpContext.Session.GetString("haik");
+            if(string.IsNullOrEmpty(haik)){
+                haik = text[counter++%4];
+                HttpContext.Session.SetString("haik",haik);
+            }
+            return View(haik);
         }
 
         public IActionResult Privacy()
