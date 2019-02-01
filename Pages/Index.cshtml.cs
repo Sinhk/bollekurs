@@ -12,14 +12,19 @@ namespace Tur.Pages
     public class IndexModel : PageModel
     {
         private readonly string SessionKey = "_SessionKey";
+        private readonly IMemoryCache cache;
 
         private static readonly IDictionary<string, Haik> haiker = new Dictionary<string, Haik>(){
-            {"sykkel", new Haik("Sykkel haik","Du skal argumenter for at haiken skal være med sykkel",new[]{"sykkeltur.jpg"})},
-            {"kano", new Haik("Kano haik","Du skal argumenter for at haiken skal være med kano",new[]{"kanotur.jpg","kanotur2.jpg"})},
-            {"ikke", new Haik("Ikke haik","Du skal argumenter for å ikke ha haik",new[]{"ikketur.jpg"})},
-            {"by", new Haik("By haik","Du skal argumenter for en by haik",new[]{"byhaik.jpg"})},
+            {"sykkel", new Haik("Sykkel haik","Du skal argumentere for at haiken skal være med sykkel",new[]{"sykkeltur.jpg"})},
+            {"kano", new Haik("Kano haik","Du skal argumentere for at haiken skal være med kano",new[]{"kanotur.jpg","kanotur2.jpg"})},
+            {"ikke", new Haik("Ikke haik","Du skal argumentere for å ikke ha haik",new[]{"ikketur.jpg"})},
+            {"by", new Haik("By haik","Du skal argumentere for en by haik",new[]{"byhaik.jpg"})},
+            {"lang", new Haik("Lang haik","Du skal argumentere for en lang haik",new []{"Langtur haik.JPG"})},
+            {"kort", new Haik("Kort haik","Du skal argumentere for en kort haik",new []{"kort haik.JPG"})},
+            {"mat", new Haik("Mat haik","Du skal argumentere for en mat haik. <\\br>En haik med god mat",new []{"Mathaik.jpg"})},
+            {"noysomhet", new Haik("Nøysomhets haik","Du skal argumentere for en nøysomhets haik. \nMatbudsjett på 26kr per person.",new []{"noysomhet.jpg"})},
+            {"jakke", new Haik("Jakke haik","Du skal argumentere for en jakke haik. \nDu får kun ha med det du får plass til i ei jakke",new []{"jakke.jpg"})},
         };
-        private readonly IMemoryCache cache;
         private static readonly int[] haikcounter = new int[haiker.Count];
         private readonly Random random = new Random();
         public IndexModel(IMemoryCache cache)
