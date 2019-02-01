@@ -14,12 +14,16 @@ namespace Tur
 {
     public class Startup
     {
+
+        public static readonly TimeSpan Timeout = TimeSpan.FromMinutes(10);
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -32,13 +36,11 @@ namespace Tur
             });
 
             services.AddSession(options =>
-        {
-            // Set a short timeout for easy testing.
-            options.IdleTimeout = TimeSpan.FromSeconds(10);
-            options.Cookie.HttpOnly = true;
-        });
-
-
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = Timeout;
+                options.Cookie.HttpOnly = true;
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -51,7 +53,7 @@ namespace Tur
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -60,12 +62,8 @@ namespace Tur
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+
+            app.UseMvc();
         }
     }
 }
