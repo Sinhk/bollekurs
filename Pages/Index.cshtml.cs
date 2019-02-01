@@ -21,9 +21,9 @@ namespace Tur.Pages
             {"by", new Haik("By haik","Du skal argumentere for en by haik",new[]{"byhaik.jpg"})},
             {"lang", new Haik("Lang haik","Du skal argumentere for en lang haik",new []{"Langtur haik.JPG"})},
             {"kort", new Haik("Kort haik","Du skal argumentere for en kort haik",new []{"kort haik.JPG"})},
-            {"mat", new Haik("Mat haik","Du skal argumentere for en mat haik. <\\br>En haik med god mat",new []{"Mathaik.jpg"})},
-            {"noysomhet", new Haik("Nøysomhets haik","Du skal argumentere for en nøysomhets haik. \nMatbudsjett på 26kr per person.",new []{"noysomhet.jpg"})},
-            {"jakke", new Haik("Jakke haik","Du skal argumentere for en jakke haik. \nDu får kun ha med det du får plass til i ei jakke",new []{"jakke.jpg"})},
+            {"mat", new Haik("Mat haik","Du skal argumentere for en mat haik. \n En haik med god mat",new []{"Mathaik.JPG"})},
+            {"noysomhet", new Haik("Nøysomhets haik","Du skal argumentere for en nøysomhets haik. \n Matbudsjett på 26kr per person.",new []{"noysomhet.jpg"})},
+            {"jakke", new Haik("Jakke haik","Du skal argumentere for en jakke haik. \n Du får kun ha med det du får plass til i ei jakke",new []{"jakke.jpg"})},
         };
         private static readonly int[] haikcounter = new int[haiker.Count];
         private readonly Random random = new Random();
