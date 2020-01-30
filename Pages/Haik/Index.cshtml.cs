@@ -14,11 +14,12 @@ namespace Bollekurs.Pages.Haik
 {
     public class IndexModel : PageModel
     {
-        private readonly string SessionKey = "_SessionKey";
-        private readonly IMemoryCache cache;
+        private const string SessionKey = "_SessionKey";
+        private readonly IMemoryCache _cache;
         private readonly ApplicationOptions _options;
 
-        private static readonly IDictionary<string, Case> haiker = new Dictionary<string, Case>(){
+        private static readonly IDictionary<string, Case> haiker = new Dictionary<string, Case>
+        {
             {"sykkel", new Case("Sykkel haik","Du skal argumentere for at haiken skal være med sykkel",new[]{"sykkeltur.jpg"})},
             {"kano", new Case("Kano haik","Du skal argumentere for at haiken skal være med kano",new[]{"kanotur.jpg","kanotur2.jpg"})},
             {"ikke", new Case("Ikke haik","Du skal argumentere for å ikke ha haik",new[]{"ikketur.jpg"})},
@@ -33,7 +34,7 @@ namespace Bollekurs.Pages.Haik
         private readonly Random random = new Random();
         public IndexModel(IMemoryCache cache, IOptionsMonitor<ApplicationOptions> options)
         {
-            this.cache = cache;
+            this._cache = cache;
             _options = options.CurrentValue;
         }
 
@@ -49,7 +50,7 @@ namespace Bollekurs.Pages.Haik
                 HttpContext.Session.SetString(SessionKey, sessionKey);
             }
 
-            var haikKey = await cache.GetOrCreateAsync(sessionKey, e =>
+            var haikKey = await _cache.GetOrCreateAsync(sessionKey, e =>
             {
                 e.SetSlidingExpiration(_options.CaseTimeout);
 

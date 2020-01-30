@@ -1,3 +1,3 @@
-# bollekurs
+# Bøllekurs
 
-Random topic selector for bollekurs 
+Random topic selector for bøllekurs 
