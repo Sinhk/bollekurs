@@ -1,15 +1,15 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Tur.Pages
+namespace Bollekurs.Models
 {
-    internal class Haik
+    internal class Case
     {
         public string Title {get;}
         public string Message {get;}
         public List<string> Images {get;}
 
-        public Haik(string title, string message, IEnumerable<string> images)
+        public Case(string title, string message, IEnumerable<string> images)
         {
             Title = title;
             Message = message;

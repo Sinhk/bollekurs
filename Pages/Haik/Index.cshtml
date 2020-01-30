@@ -1,0 +1,12 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Model.Title</h1>
+    <span style="white-space: pre-line">@Model.Message</span>
+    <br/>
+    <img src="~/img/haik/@Model.Image" asp-append-version="true" />
+</div>
