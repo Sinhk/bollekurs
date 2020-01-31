@@ -7,3 +7,31 @@
 <div class="text-center">
     <h1 class="display-4">Bøllekurs</h1>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <img src="~/img/del1.jpg" asp-append-version="true" class="card-img-top" alt="Sakspapirer">
+                <div class="card-body">
+                    <h5 class="card-title">Del 1</h5>
+                    <p class="card-text">Gjennomføres før kretsting</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGIgL7gFoFhmDrPSuLqvub5VKwmUdHU_zi2leu5IQL96y7Cg/viewform" class="btn btn-primary">Start</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="~/img/del2.jpg" asp-append-version="true" class="card-img-top" alt="bollekurskort">
+                <div class="card-body">
+                    <h5 class="card-title">Del 2</h5>
+                    <p class="card-text">Gjennomføres på kretsting</p>
+                    @if (DateTime.UtcNow > new DateTime(2020, 2, 1, 9, 0, 0))
+                    {
+                        <a href="~/mat" class="btn btn-primary">Start</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
