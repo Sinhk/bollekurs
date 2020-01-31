@@ -56,18 +56,20 @@ namespace Bollekurs.Pages.Mat
             {
                 caseIndex = Math.Abs(id.Value % Mat.Length);
             }
-            else if (ny.GetValueOrDefault())
-            {
-                caseIndex = RandomCase();
-            }
             else
             {
-                await HttpContext.Session.LoadAsync();
-                var sessionKey = HttpContext.Session.GetString(SessionKey);
-                if (string.IsNullOrEmpty(sessionKey))
-                {
+                string sessionKey;
+                if (ny.GetValueOrDefault())
                     sessionKey = Guid.NewGuid().ToString();
-                    HttpContext.Session.SetString(SessionKey, sessionKey);
+                else
+                {
+                    await HttpContext.Session.LoadAsync();
+                    sessionKey = HttpContext.Session.GetString(SessionKey);
+                    if (string.IsNullOrEmpty(sessionKey))
+                    {
+                        sessionKey = Guid.NewGuid().ToString();
+                        HttpContext.Session.SetString(SessionKey, sessionKey);
+                    }
                 }
 
                 caseIndex = _cache.GetOrCreate(sessionKey, e =>
