@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Caching.Memory;
 using Bollekurs.Models;
 using Microsoft.Extensions.Options;
@@ -45,9 +39,9 @@ namespace Bollekurs.Pages.Mat
             _options = options.CurrentValue;
         }
 
-        public string Title { get; private set; }
-        public string Image { get; private set; }
-        public string Message { get; private set; }
+        public string? Title { get; private set; }
+        public string? Image { get; private set; }
+        public string? Message { get; private set; }
 
         public async Task OnGetAsync(int? id, bool? ny)
         {
@@ -58,7 +52,7 @@ namespace Bollekurs.Pages.Mat
             }
             else
             {
-                string sessionKey;
+                string? sessionKey;
                 if (ny.GetValueOrDefault())
                     sessionKey = Guid.NewGuid().ToString();
                 else

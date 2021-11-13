@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Caching.Memory;
 
 using Bollekurs.Models;
@@ -38,9 +32,9 @@ namespace Bollekurs.Pages.Haik
             _options = options.CurrentValue;
         }
 
-        public string Title { get; private set; }
-        public string Image { get; private set; }
-        public string Message { get; private set; }
+        public string? Title { get; private set; }
+        public string? Image { get; private set; }
+        public string? Message { get; private set; }
         public async Task OnGetAsync()
         {
             var sessionKey = HttpContext.Session.GetString(SessionKey);
