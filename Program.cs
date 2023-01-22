@@ -15,7 +15,11 @@ builder.Services.AddSession(options=>{
     options.Cookie.IsEssential=true;
 });
 
+builder.Services.AddSingleton<CaseManager>();
+
 var app = builder.Build();
+app.Services.GetRequiredService<CaseManager>()
+    .AddCases(Cases.Haiker.Values);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
