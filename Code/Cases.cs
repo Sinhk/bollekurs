@@ -6,17 +6,17 @@ static class Cases
 {
     public 
     static readonly Case[] Mat =
-        {
-            new Case("Ferdigmat", "Du skal argumentere for at det bare skal være ferdigmat.", new[] {"mat/ferdigmat.png"}),
-            new Case("REAL Turmat", "Du skal argumentere for at det bare skal være REAL Turmat.", new[] {"mat/realturmat.png"}),
-            new Case("Økologisk mat", "Du skal argumentere for at all maten skal være økologisk.", new[] {"mat/okologisk.png"}),
-            new Case("Vegetarmat", "Du skal argumentere for at all maten skal være vegetarisk.", new[] {"mat/vegetar.png"}),
-            new Case("Kortreis mat", "Du skal argumentere for at maten skal være mest mulig kortreist.", new[] {"mat/kortreist.png"}),
-            new Case("Hjemmelaget", "Du skal argumentere for at all maten skal lages fra bunnen av.", new[] {"mat/hjemmelaget.png"}),
-            new Case("Billig mat", "Du skal argumentere for at all maten skal være billigst mulig", new[] {"mat/billig.png"}),
-            new Case("Bare brød", "NEI, NEI, NEI, gi meg brød med smør på! Og ikke noe mer!", new[] {"mat/brod.png"}),
-            new Case("Restaurant", "Du skal argumentere for at vi skal spise på restaurant hver dag",new[] {"mat/restaurant.png"}),
-        };
+        [
+            new ("Ferdigmat", "Du skal argumentere for at det bare skal være ferdigmat.", new[] {"mat/ferdigmat.png"}),
+            new ("REAL Turmat", "Du skal argumentere for at det bare skal være REAL Turmat.", new[] {"mat/realturmat.png"}),
+            new ("Økologisk mat", "Du skal argumentere for at all maten skal være økologisk.", new[] {"mat/okologisk.png"}),
+            new ("Vegetarmat", "Du skal argumentere for at all maten skal være vegetarisk.", new[] {"mat/vegetar.png"}),
+            new ("Kortreis mat", "Du skal argumentere for at maten skal være mest mulig kortreist.", new[] {"mat/kortreist.png"}),
+            new ("Hjemmelaget", "Du skal argumentere for at all maten skal lages fra bunnen av.", new[] {"mat/hjemmelaget.png"}),
+            new ("Billig mat", "Du skal argumentere for at all maten skal være billigst mulig", new[] {"mat/billig.png"}),
+            new ("Bare brød", "NEI, NEI, NEI, gi meg brød med smør på! Og ikke noe mer!", new[] {"mat/brod.png"}),
+            new ("Restaurant", "Du skal argumentere for at vi skal spise på restaurant hver dag",new[] {"mat/restaurant.png"}),
+        ];
 
     public static readonly IDictionary<string, Case> Haiker = new Dictionary<string, Case>
         {

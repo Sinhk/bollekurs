@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Bollekurs.Models
 {
-    internal class Case
+    internal sealed class Case
     {
         public string Title {get;}
         public string Message {get;}

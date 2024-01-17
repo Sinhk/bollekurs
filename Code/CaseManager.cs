@@ -40,7 +40,13 @@ public sealed class CaseManager
         {
             e.SetSlidingExpiration(_optionsMonitor.CurrentValue.CaseTimeout);
             var index = GetRandomIndex();
-            e.RegisterPostEvictionCallback((key, value, reason, state) => _counter[(int) state]--, index);
+            e.RegisterPostEvictionCallback(static (key, value, reason, state) => 
+            {
+                if(state is (int index, int[] counter))
+                {
+                    counter[index]--;
+                }
+            }, (index, _counter));
             return index;
         });
 
@@ -51,9 +57,10 @@ public sealed class CaseManager
     {
         if (_cases == null)
             throw new InvalidOperationException("No cases added");
-        if(id < 0 || id > _cases.Length-1)
-            throw new ArgumentOutOfRangeException("Id must be between 0 and {_cases.Length-1}",nameof(id));
-        
+
+        ArgumentOutOfRangeException.ThrowIfLessThan(id, 0);
+        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(id, _cases.Length);
+
         return _cases[id];
     }
 
