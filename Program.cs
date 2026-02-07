@@ -19,7 +19,7 @@ builder.Services.AddSingleton<CaseManager>();
 
 var app = builder.Build();
 app.Services.GetRequiredService<CaseManager>()
-    .AddCases(Cases.Haiker.Values);
+    .AddCases(Cases.Mat.Values);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
